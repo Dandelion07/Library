@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MemberMainWindow</class>
+ <widget class="QWidget" name="MemberMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1074</width>
+    <height>598</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>B Nazanin</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>صفحه کاربری عضو</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="locale">
+   <locale language="Persian" country="Iran"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="grp_member_info">
+     <property name="title">
+      <string>اطلاعات عضو</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="lbl_img">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="resources/resources.qrc">:/icons/user.png</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="vlay_info">
+        <item>
+         <layout class="QHBoxLayout" name="hlay_info">
+          <item>
+           <widget class="QLabel" name="lbl_member_id_title">
+            <property name="text">
+             <string>کد عضو:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_member_id">
+            <property name="text">
+             <string>1234</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_fname_title">
+            <property name="text">
+             <string>نام:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_fname">
+            <property name="text">
+             <string>نام</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_lname_title">
+            <property name="text">
+             <string>نام خانوادگی:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_lname">
+            <property name="text">
+             <string>نام خانوادگی</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_phone_title">
+            <property name="text">
+             <string>تلفن همراه:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_phone">
+            <property name="text">
+             <string>09131234567</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_register_date_title">
+            <property name="text">
+             <string>تاریخ عضویت:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_register_date">
+            <property name="text">
+             <string>1401/05/12</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="hlay__address">
+          <item>
+           <widget class="QLabel" name="lbl_address_title">
+            <property name="text">
+             <string>آدرس:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_address">
+            <property name="text">
+             <string>آدرس</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="hlay_book_tables">
+     <item>
+      <widget class="QGroupBox" name="grp_loaned">
+       <property name="title">
+        <string>کتاب‌های امانت‌گرفته‌شده</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QTableWidget" name="tbl_loaned_books">
+          <column>
+           <property name="text">
+            <string>کد کتاب</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>عنوان</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>تاریخ امانت</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>موعد بازگشت</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>میزان جریمه</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="grp_search">
+       <property name="title">
+        <string>نتایج جست‌وجو</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QTableWidget" name="tbl_searched_books">
+          <column>
+           <property name="text">
+            <string>کد کتاب</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>عنوان</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>نویسنده</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>وضعیت کتاب</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>عملیات</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="hlay_buttons">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_search">
+       <property name="text">
+        <string>جست‌وجو</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_back">
+       <property name="text">
+        <string>بازگشت</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources/resources.qrc"/>
+  <include location="resources/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddBookDialog</class>
+ <widget class="QDialog" name="AddBookDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>950</width>
+    <height>370</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>950</width>
+    <height>370</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>950</width>
+    <height>370</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>B Nazanin</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>افزودن کتاب</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="locale">
+   <locale language="Persian" country="Iran"/>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_4">
+   <item>
+    <layout class="QVBoxLayout" name="vlay_info">
+     <item>
+      <layout class="QFormLayout" name="flay_info">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lbl_title_title">
+         <property name="text">
+          <string>عنوان</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="txt_title"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lbl_pub_title">
+         <property name="text">
+          <string>انتشارات</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="txt_publication"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lbl_section_title">
+         <property name="text">
+          <string>بخش</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="cmb_section"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lbl_pub_date_title">
+         <property name="text">
+          <string>تاریخ انتشار</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <layout class="QHBoxLayout" name="hlay_date" stretch="2,1,2,1,3">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QSpinBox" name="spn_day"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="lbl_slash2">
+           <property name="text">
+            <string>/</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="spn_month"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="lbl_slash1">
+           <property name="text">
+            <string>/</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="spn_year"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbl_error">
+       <property name="palette">
+        <palette>
+         <active>
+          <colorrole role="WindowText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </brush>
+          </colorrole>
+         </active>
+         <inactive>
+          <colorrole role="WindowText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>255</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </brush>
+          </colorrole>
+         </inactive>
+         <disabled>
+          <colorrole role="WindowText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>120</red>
+             <green>120</green>
+             <blue>120</blue>
+            </color>
+           </brush>
+          </colorrole>
+         </disabled>
+        </palette>
+       </property>
+       <property name="text">
+        <string>خطا</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_add_book">
+       <property name="text">
+        <string>ثبت کتاب</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_back">
+       <property name="text">
+        <string>بازگشت</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="grp_author_translator">
+     <property name="title">
+      <string>نویسندگان / مترجمان</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="hlay_add_author_translator">
+        <item>
+         <widget class="QLabel" name="lbl_fname">
+          <property name="text">
+           <string>نام</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txt_fname"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="lbl_lname">
+          <property name="text">
+           <string>نام خانوادگی</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txt_lname"/>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_add_author">
+          <property name="text">
+           <string>افزودن نویسنده</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_add_translator">
+          <property name="text">
+           <string>افزودن مترجم</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="hlay_tables">
+        <item>
+         <widget class="QGroupBox" name="grp_authors">
+          <property name="title">
+           <string>نویسندگان</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QTableWidget" name="tbl_authors">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <column>
+              <property name="text">
+               <string>نام</string>
+              </property>
+              <property name="font">
+               <font>
+                <family>B Nazanin</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>نام خانوادگی</string>
+              </property>
+              <property name="font">
+               <font>
+                <family>B Nazanin</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>عملیات</string>
+              </property>
+              <property name="font">
+               <font>
+                <family>B Nazanin</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="grp_translators">
+          <property name="title">
+           <string>مترجمان</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QTableWidget" name="tbl_translators">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <column>
+              <property name="text">
+               <string>نام</string>
+              </property>
+              <property name="font">
+               <font>
+                <family>B Nazanin</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>نام خانوادگی</string>
+              </property>
+              <property name="font">
+               <font>
+                <family>B Nazanin</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>عملیات</string>
+              </property>
+              <property name="font">
+               <font>
+                <family>B Nazanin</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
