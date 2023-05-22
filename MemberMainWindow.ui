@@ -374,7 +374,7 @@
      <item>
       <widget class="QPushButton" name="btn_back">
        <property name="text">
-        <string>بازگشت</string>
+        <string>خروج</string>
        </property>
       </widget>
      </item>

@@ -8,6 +8,7 @@ from LoginDialog import LoginDialog
 from UserSearchDialog import UserSearchDialog
 from Member import Member
 from MemberMainWindow import MemberMainWindow
+from EmployeeMainWindow import EmployeeMainWindow
 
 class UserMainWindow(QMainWindow, Ui_UserMainWindow):
     def __init__(self) -> None:
@@ -69,7 +70,6 @@ class UserMainWindow(QMainWindow, Ui_UserMainWindow):
             if isinstance(res[1], Member):
                 self.member_window = MemberMainWindow(res[1])
                 self.member_window.showMaximized()
-            # TODO Uncomment
-            # else:
-            #     self.employee_window = EmployeeMainWindow(res[1])
-            #     self.employee_window.showMaximized()
+            else:
+                self.employee_window = EmployeeMainWindow(res[1])
+                self.employee_window.showMaximized()

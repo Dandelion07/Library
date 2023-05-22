@@ -32,7 +32,7 @@ class Book:
         self.name: str = name
         self.publication_name: str = publication_name
         self.release_date: date = release_date
-        self.status: str = status
+        self.status: BookStatus = status
         self.section: Section = section
         self.reserved_by: Member = reserved_by
         self.authors: str = authors
@@ -126,4 +126,6 @@ class Book:
         #     books.append(Book(item[0], item[1], item[2], date.fromisoformat(item[3]), BookStatus.set(item[4]), Section(item[5], item[6]), None, item[7], item[8]))
         # return books
 
-        return [Book(1, "کتاب1", "مهر", date(2008,12,24), BookStatus.Available, Section(1, "رمان"), None, "علیرضا محمدی", None)]
+        return [Book(1, "کتاب1", "مهر", date(2008,12,24), BookStatus.Available, Section(1, "رمان"), None, "علیرضا محمدی", None),
+                Book(2, "کتاب2", "مهر", date(2008,12,24), BookStatus.Loaned, Section(1, "رمان"), None, "علیرضا محمدی", None),
+                Book(3, "کتاب3", "مهر", date(2008,12,24), BookStatus.Reserved, Section(1, "رمان"), None, "علیرضا محمدی", None)]

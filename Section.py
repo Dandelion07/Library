@@ -17,4 +17,4 @@ class Section:
         #     sections.append(Section(s[0], s[1]))
         # return sections
 
-        return list()
+        return [Section(1, "تاریخی"), Section(2, "رمان"), Section(3, "جنایی"), Section(4, "تخیلی"), Section(5, "علمی")]
