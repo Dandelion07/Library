@@ -73,11 +73,11 @@ class MemberMainWindow(Ui_MemberMainWindow, QWidget):
 
     def btn_loan_clicked(self, book_id: int, member_id: int):
         res, message = Loan.request_loan(book_id, member_id)
-        QuestionDialog(self, message).exec()
+        QuestionDialog(self, message, "پیام").exec()
         if res:
             self.loans = Loan.get_loans_by_member(self.member.member_id)
             self.fill_loan_table(self.loans)
 
     def btn_reserve_clicked(self, book_id: int, member_id: int):
         res, message = Loan.reserve(book_id, member_id)
-        QuestionDialog(self, message).exec()
+        QuestionDialog(self, message, "پیام").exec()

@@ -32,3 +32,17 @@ class Member:
         # return (True, Member(res[0], res[1], res[2], res[3], res[4], date(res[5]), res[6]))
 
         return (True, Member(1, "فاطمه", "آقابابایی", "09131234567", "اصفهان", date.fromisoformat("2020-05-22")))
+    
+    @classmethod
+    def get_all_members(cls) -> list['Member']:
+        # TODO Uncomment
+        # cursor = DatabaseManager.get_cursor()
+        # cursor.execute("""SELECT member_id, first_name, last_name, phone, address, membership_date, picture_path, registered_by FROM Member""")
+        # members = list()
+        # for item in cursor:
+        #     members.append(Member(int(item[0]), item[1], item[2], item[3], item[4], date.fromisoformat(item[5]), item[6], Employee(int(item[7]))))
+        # return members
+
+        return [Member(1, "علیرضا", "آقابابایی", "09123456789", "اصفهان", date(2022,1,30), ""),
+                Member(2, "فاطمه", "محمدی", "09100000000", "اصفهان", date(2022,7,21), ""),
+                Member(3, "سارا", "اکبری", "09125643208", "اصفهان", date(2022,12,1), "")]
