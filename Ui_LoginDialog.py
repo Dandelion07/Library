@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'LoginDialog.ui'
+# Form implementation generated from reading ui file '.\LoginDialog.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,14 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_LoginDialog(object):
     def setupUi(self, LoginDialog):
         LoginDialog.setObjectName("LoginDialog")
-        LoginDialog.resize(270, 192)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(LoginDialog.sizePolicy().hasHeightForWidth())
-        LoginDialog.setSizePolicy(sizePolicy)
-        LoginDialog.setMinimumSize(QtCore.QSize(270, 192))
-        LoginDialog.setMaximumSize(QtCore.QSize(270, 192))
+        LoginDialog.resize(240, 192)
         font = QtGui.QFont()
         font.setFamily("B Nazanin")
         font.setPointSize(12)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'UserMainWindow.ui'
+# Form implementation generated from reading ui file '.\UserMainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -71,6 +71,7 @@ class Ui_UserMainWindow(object):
         self.cmb_section.setObjectName("cmb_section")
         self.verticalLayout.addWidget(self.cmb_section)
         self.tbl_books = QtWidgets.QTableWidget(self.centralwidget)
+        self.tbl_books.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tbl_books.setObjectName("tbl_books")
         self.tbl_books.setColumnCount(8)
         self.tbl_books.setRowCount(0)

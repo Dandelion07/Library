@@ -12,6 +12,8 @@ class LoginDialog(Ui_LoginDialog, QDialog):
         self.btn_back.clicked.connect(self.btn_back_clicked)
         self.btn_login.clicked.connect(self.btn_login_clicked)
 
+        self.adjustSize()
+
     def exec(self):
         res = super().exec()
         if res == self.Rejected:

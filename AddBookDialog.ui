@@ -91,7 +91,14 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QSpinBox" name="spn_day"/>
+          <widget class="QSpinBox" name="spn_day">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>31</number>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QLabel" name="lbl_slash2">
@@ -104,7 +111,14 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spn_month"/>
+          <widget class="QSpinBox" name="spn_month">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>12</number>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QLabel" name="lbl_slash1">
@@ -117,7 +131,14 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spn_year"/>
+          <widget class="QSpinBox" name="spn_year">
+           <property name="minimum">
+            <number>1300</number>
+           </property>
+           <property name="maximum">
+            <number>1500</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

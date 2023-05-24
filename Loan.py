@@ -106,3 +106,42 @@ class Loan:
         # cursor.execute("""DELETE FROM loan WHERE loan_id = ?""", loan_id)
         # cursor.commit()
         return
+    
+    @classmethod
+    def get_loan_stats_by_sections(cls) -> list[tuple]:
+        # TODO Uncomment
+        # cursor = DatabaseManager.get_cursor()
+        # cursor.execute("""
+        #     SELECT s.section_id, s.name, COUNT(l.loan_id) AS loan_count
+        #     FROM loan AS l
+        #     INNER JOIN book AS b ON l.book_id = l.book_id
+        #     INNER JOIN section AS s ON s.section_id = b.section_id
+        #     GROUP BY s.section_id
+        #     ORDER BY loan_count DESC
+        # """)
+        # result = list()
+        # for item in cursor:
+        #     result.append((int(item[0]), item[1], int(item[2])))
+        # return result
+
+        return [(1, "رمان", 78), (2, "تاریخی", 60), (3, "ادبیات", 58), (4, "علمی", 50), (5, "تخیلی", 37)]
+
+    @classmethod
+    def get_loan_stats_by_members(cls) -> list[tuple]:
+        # TODO Uncomment
+        # cursor = DatabaseManager.get_cursor()
+        # cursor.execute("""
+        #     SELECT l.member_id, m.first_name, m.last_name, COUNT(l.loan_id) AS loan_count
+        #     FROM loan AS l
+        #     INNER JOIN member AS m ON l.member_id = l.member_id
+        #     GROUP BY l.member_id, m.first_name, m.last_name
+        #     ORDER BY loan_count DESC
+        # """)
+        # result = list()
+        # for item in cursor:
+        #     result.append((int(item[0]), item[1], item[2], int(item[3])))
+        # return result
+
+        return [(1, "علیرضا", "آقابابایی", 7),
+                (2, "پریسا", "عمادی", 6),
+                (3, "فاطمه", "آقابابایی", 4)]

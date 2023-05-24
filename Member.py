@@ -46,3 +46,24 @@ class Member:
         return [Member(1, "علیرضا", "آقابابایی", "09123456789", "اصفهان", date(2022,1,30), ""),
                 Member(2, "فاطمه", "محمدی", "09100000000", "اصفهان", date(2022,7,21), ""),
                 Member(3, "سارا", "اکبری", "09125643208", "اصفهان", date(2022,12,1), "")]
+    
+    @classmethod
+    def delete_member(cls, member_id: int):
+        # TODO Uncomment
+        # cursor = DatabaseManager.get_cursor()
+        # cursor.execute("""DELETE FROM member WHERE member_id = ?""", member_id)
+        # cursor.commit()
+        return
+    
+    @classmethod
+    def add_member(cls, first_name: str, last_name: str, phone: str, address: str, employee_id: int):
+        # TODO Uncomment
+        # cursor = DatabaseManager.get_cursor()
+        # cursor.execute("""
+        #     INSERT INTO member (first_name, last_name, phone, address, membership_date, registered_by)
+        #     VALUES (?, ?, ?, ?, GETDATE(), ?)
+        # """, first_name, last_name, phone, address, employee_id)
+        # cursor.commit()
+        return
+    
+    

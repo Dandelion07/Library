@@ -5,6 +5,11 @@ from Loan import Loan
 from QuestionDialog import QuestionDialog
 from Book import Book
 from ShowMembersDialog import ShowMembersDialog
+from AddMemberDialog import AddMemberDialog
+from AddBookDialog import AddBookDialog
+from ShowEmployeesDialog import ShowEmployeesDialog
+from ShowLoanStatsDialog import ShowLoanStatsDialog
+from ShowMembersStatsDialog import ShowMembersStatsDialog
 
 class EmployeeMainWindow(Ui_EmployeeMainWindow, QWidget):
     def __init__(self, employee: Employee, parent = None):
@@ -36,6 +41,10 @@ class EmployeeMainWindow(Ui_EmployeeMainWindow, QWidget):
         self.btn_add_book.clicked.connect(self.btn_add_book_clicked)
         self.btn_delete_book.clicked.connect(self.btn_delete_book_clicked)
         self.btn_delete_old_books.clicked.connect(self.btn_delete_old_books_clicked)
+
+        self.btn_show_employees.clicked.connect(self.btn_show_employees_clicked)
+        self.btn_stat_loans.clicked.connect(self.btn_stat_loans_clicked)
+        self.btn_stat_members.clicked.connect(self.btn_stat_members_clicked)
 
 
     def fill_loan_requests_table(self, loans: list[Loan]):
@@ -106,13 +115,38 @@ class EmployeeMainWindow(Ui_EmployeeMainWindow, QWidget):
         ShowMembersDialog(self, True).exec()
 
     def btn_add_member_clicked(self):
-        pass
+        AddMemberDialog(self.employee.employee_id, self).exec()
 
     def btn_add_book_clicked(self):
-        pass
+        AddBookDialog(self.employee.section, self).exec()
 
     def btn_delete_book_clicked(self):
-        pass
+        if len(self.tbl_books.selectionModel().selectedRows()) == 0:
+            QuestionDialog(self, "هیچ کتابی جهت حذف انتخاب نشده‌است ", "هشدار").exec()
+            return
+        if not QuestionDialog(self, "آیا از حذف کتاب‌های انتخاب‌شده مطمئن هستید؟", "سوال").exec():
+            return
+        book_id_list = [int(self.tbl_books.item(row.row(), 0).text()) for row in self.tbl_books.selectionModel().selectedRows()]
+        Book.delete_books(book_id_list)
+        QuestionDialog(self, "کتاب‌های انتخاب‌شده با موفقیت حذف شد", "پیام").exec()
+
+        self.books = Book.search(section_name = self.employee.section.name if not self.employee.is_manager else None)
+        self.fill_book_table(self.books)
 
     def btn_delete_old_books_clicked(self):
-        pass
+        if not QuestionDialog(self, "آیا از حذف کتاب‌های قدیمی که در یک سال گذشته کمتر از 5 بار به امانت رفته‌اند، مطمئن هستید؟", "سوال").exec():
+            return
+        Book.delete_old_books()
+        QuestionDialog(self, "کتاب‌های قدیمی با موفقیت حذف شد", "پیام").exec()
+
+        self.books = Book.search(section_name = self.employee.section.name if not self.employee.is_manager else None)
+        self.fill_book_table(self.books)
+
+    def btn_show_employees_clicked(self):
+        ShowEmployeesDialog(self, Employee.get_all_employees()).exec()
+
+    def btn_stat_loans_clicked(self):
+        ShowLoanStatsDialog(self, Loan.get_loan_stats_by_sections()).exec()
+
+    def btn_stat_members_clicked(self):
+        ShowMembersStatsDialog(self, Loan.get_loan_stats_by_members()).exec()

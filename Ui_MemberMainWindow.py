@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'MemberMainWindow.ui'
+# Form implementation generated from reading ui file '.\MemberMainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -95,6 +95,7 @@ class Ui_MemberMainWindow(object):
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.grp_loaned)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.tbl_loaned_books = QtWidgets.QTableWidget(self.grp_loaned)
+        self.tbl_loaned_books.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tbl_loaned_books.setObjectName("tbl_loaned_books")
         self.tbl_loaned_books.setColumnCount(5)
         self.tbl_loaned_books.setRowCount(0)
@@ -135,6 +136,7 @@ class Ui_MemberMainWindow(object):
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.grp_search)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.tbl_searched_books = QtWidgets.QTableWidget(self.grp_search)
+        self.tbl_searched_books.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tbl_searched_books.setObjectName("tbl_searched_books")
         self.tbl_searched_books.setColumnCount(5)
         self.tbl_searched_books.setRowCount(0)
@@ -228,5 +230,5 @@ class Ui_MemberMainWindow(object):
         item = self.tbl_searched_books.horizontalHeaderItem(4)
         item.setText(_translate("MemberMainWindow", "عملیات"))
         self.btn_search.setText(_translate("MemberMainWindow", "جست‌وجو"))
-        self.btn_back.setText(_translate("MemberMainWindow", "بازگشت"))
+        self.btn_back.setText(_translate("MemberMainWindow", "خروج"))
 import resources_rc

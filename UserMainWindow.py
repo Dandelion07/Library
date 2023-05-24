@@ -50,7 +50,7 @@ class UserMainWindow(QMainWindow, Ui_UserMainWindow):
             i += 1
     
     def cmb_section_changed(self, section_id: int) -> None:
-        books = Book.get_book_from_section(section_id)
+        books = Book.get_book_from_section(self.cmb_section.itemText(section_id) if section_id != 0 else "")
         self.fill_book_table(books)
 
     def btn_all_books_clicked(self):

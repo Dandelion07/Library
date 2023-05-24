@@ -39,7 +39,7 @@ class Book:
         self.translators: str = translators
 
     @classmethod
-    def get_book_from_section(cls, section_id: int = 0) -> list['Book']:
+    def get_book_from_section(cls, section_name: str = "") -> list['Book']:
         # TODO Uncomment
         # cursor = DatabaseManager.get_cursor()
         # query = """
@@ -47,8 +47,8 @@ class Book:
         #                 STRING_AGG(CONCAT(a.first_name, ' ', a.last_name), ', ') AS authors,
         #                 STRING_AGG(CONCAT(t.first_name, ' ', t.last_name), ', ') AS translators
         #             FROM book AS b"""
-        # if section_id != 0:
-        #     query += """\nWHERE b.section_id = ?\n"""
+        # if section_name != "":
+        #     query += """\nWHERE b.section_name = ?\n"""
         # query += """
         #     INNER JOIN section AS s ON b.section_id = s.section_id
         #     INNER JOIN book_authors AS ba ON b.book_id = ba.book_id
@@ -57,7 +57,7 @@ class Book:
         #     INNER JOIN translator AS t ON bt.translator_id = t.translator_id
         #     GROUP BY b.book_id, b.name, b.piblication_name, b.release_date
         # """
-        # cursor.execute(query, section_id)
+        # cursor.execute(query, section_name)
         # books = list()
         # for b in cursor:
         #     books.append(Book(
@@ -129,3 +129,43 @@ class Book:
         return [Book(1, "کتاب1", "مهر", date(2008,12,24), BookStatus.Available, Section(1, "رمان"), None, "علیرضا محمدی", None),
                 Book(2, "کتاب2", "مهر", date(2008,12,24), BookStatus.Loaned, Section(1, "رمان"), None, "علیرضا محمدی", None),
                 Book(3, "کتاب3", "مهر", date(2008,12,24), BookStatus.Reserved, Section(1, "رمان"), None, "علیرضا محمدی", None)]
+
+    @classmethod
+    def add_book(cls, name: str, authors: str, translators: str = None, publication_name: str = None, release_date: date = None, section_id: int = None):
+        # TODO Uncomment
+        # cursor = DatabaseManager.get_cursor()
+        # cursor.execute("""
+        #     INSERT INTO book (name, authors, translators, publication_name, release_date, status, section_id)
+        #     VALUES (?, ?, ?, ?, ?, ?, ?)
+        # """, name, authors, translators, publication_name, release_date, BookStatus.Available.value, section_id)
+        # cursor.commit()
+        return
+    
+    @classmethod
+    def delete_books(cls, book_id_list: list[int]):
+        # TODO Uncomment
+        # cursor = DatabaseManager.get_cursor()
+        # cursor.execute("""DELETE FROM book WHERE book_id IN ?""", book_id_list)
+        # cursor.commit()
+        return
+    
+    @classmethod
+    def delete_old_books(cls):
+        # TODO Uncomment
+        # cursor = DatabaseManager.get_cursor()
+        # cursor.execute("""
+        #     WITH book_view (book_id, book_name, loan_count) AS (
+        #         SELECT b.book_id, b.name, ISNULL(COUNT(l.loan_id), 0) as loan_count
+        #         FROM book AS b
+        #         LEFT JOIN loan AS l ON b.book_id = l.book_id
+        #         WHERE DATEDIFF(year, l.borrow_date, GETDATE()) < 1 AND DATEDIFF(year, b.release_date, GETDATE()) > 15
+        #         GROUP BY b.book_id, b.name
+        #     )
+        #     DELETE FROM book
+        #     WHERE book_id IN (
+        #         SELECT book_id FROM book_view
+        #         WHERE loan_count < 5;
+        #     )
+        # """)
+        # cursor.commit()
+        return

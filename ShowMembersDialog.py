@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem, QHeaderView
 from Ui_ShowMembersDialog import Ui_ShowMembersDialog
 from Member import Member
+from QuestionDialog import QuestionDialog
 
 class ShowMembersDialog(Ui_ShowMembersDialog, QDialog):
     def __init__(self, parent = None, delete_mode: bool = False):
@@ -37,7 +38,13 @@ class ShowMembersDialog(Ui_ShowMembersDialog, QDialog):
         self.tbl_members.horizontalHeader().setSectionResizeMode(5, QHeaderView.ResizeMode.Stretch)
 
     def btn_delete_clicked(self):
-        pass        
+        selected_rows = [row.row() for row in self.tbl_members.selectionModel().selectedRows()]
+        print(selected_rows)
+        for row in selected_rows:
+            Member.delete_member(int(self.tbl_members.item(row, 0).text()))
+        self.members = Member.get_all_members()
+        self.fill_members_table(self.members)
+        QuestionDialog(self, "اعضای انتخاب‌شده با موفقیت حذف شدند.", "پیام").exec()
 
     def btn_back_clicked(self):
         self.reject()
