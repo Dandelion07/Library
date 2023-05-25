@@ -1,5 +1,5 @@
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem
+from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem, QHeaderView
 from Section import Section
 from Ui_UserMainWindow import Ui_UserMainWindow
 from Library import Library
@@ -10,7 +10,7 @@ from Member import Member
 from MemberMainWindow import MemberMainWindow
 from EmployeeMainWindow import EmployeeMainWindow
 
-class UserMainWindow(QMainWindow, Ui_UserMainWindow):
+class UserMainWindow(Ui_UserMainWindow, QMainWindow):
     def __init__(self) -> None:
         super(QMainWindow, self).__init__()
         super(Ui_UserMainWindow, self).__init__()
@@ -32,6 +32,11 @@ class UserMainWindow(QMainWindow, Ui_UserMainWindow):
         self.btn_show_all.clicked.connect(self.btn_all_books_clicked)
         self.btn_search.clicked.connect(self.btn_search_clicked)
         self.btn_Login.clicked.connect(self.btn_login_clicked)
+        self.btn_exit.clicked.connect(self.btn_exit_clicked)
+
+        self.tbl_books.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
+        self.tbl_books.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
+        self.fill_book_table(Book.search())
 
     def fill_book_table(self, books: list[Book]) -> None:
         self.tbl_books.setRowCount(0)
@@ -50,7 +55,7 @@ class UserMainWindow(QMainWindow, Ui_UserMainWindow):
             i += 1
     
     def cmb_section_changed(self, section_id: int) -> None:
-        books = Book.get_book_from_section(self.cmb_section.itemText(section_id) if section_id != 0 else "")
+        books = Book.search(section_name = self.cmb_section.itemText(section_id) if section_id != 0 else None)
         self.fill_book_table(books)
 
     def btn_all_books_clicked(self):
@@ -66,10 +71,13 @@ class UserMainWindow(QMainWindow, Ui_UserMainWindow):
         login_dlg = LoginDialog(self)
         res = login_dlg.exec()
         if res[0] == login_dlg.Accepted:
-            self.close()
+            self.hide()
             if isinstance(res[1], Member):
-                self.member_window = MemberMainWindow(res[1])
+                self.member_window = MemberMainWindow(res[1], self)
                 self.member_window.showMaximized()
             else:
-                self.employee_window = EmployeeMainWindow(res[1])
+                self.employee_window = EmployeeMainWindow(res[1], self)
                 self.employee_window.showMaximized()
+
+    def btn_exit_clicked(self):
+        self.close()

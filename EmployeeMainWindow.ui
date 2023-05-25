@@ -447,7 +447,7 @@
      <item>
       <widget class="QPushButton" name="btn_back">
        <property name="text">
-        <string>خروج</string>
+        <string>خروج از حساب کاربری</string>
        </property>
       </widget>
      </item>

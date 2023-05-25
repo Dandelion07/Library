@@ -44,6 +44,9 @@
    <locale language="Persian" country="Iran"/>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_4">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetFixedSize</enum>
+   </property>
    <item>
     <layout class="QVBoxLayout" name="vlay_info">
      <item>

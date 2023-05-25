@@ -14,14 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MemberSearchDialog(object):
     def setupUi(self, MemberSearchDialog):
         MemberSearchDialog.setObjectName("MemberSearchDialog")
-        MemberSearchDialog.resize(270, 270)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(MemberSearchDialog.sizePolicy().hasHeightForWidth())
-        MemberSearchDialog.setSizePolicy(sizePolicy)
-        MemberSearchDialog.setMinimumSize(QtCore.QSize(270, 270))
-        MemberSearchDialog.setMaximumSize(QtCore.QSize(270, 270))
+        MemberSearchDialog.resize(295, 316)
         font = QtGui.QFont()
         font.setFamily("B Nazanin")
         font.setPointSize(12)
@@ -29,6 +22,7 @@ class Ui_MemberSearchDialog(object):
         MemberSearchDialog.setLayoutDirection(QtCore.Qt.RightToLeft)
         MemberSearchDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Persian, QtCore.QLocale.Iran))
         self.verticalLayout = QtWidgets.QVBoxLayout(MemberSearchDialog)
+        self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
         self.verticalLayout.setObjectName("verticalLayout")
         self.flay_inputs = QtWidgets.QFormLayout()
         self.flay_inputs.setObjectName("flay_inputs")

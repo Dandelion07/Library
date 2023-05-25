@@ -11,15 +11,12 @@ class Library:
         self.address: str = address
 
     @classmethod
-    def get_info(cls, lib_id: int = 1) -> 'Library':
-        # TODO Uncomment
-        # cursor = DatabaseManager.get_cursor()
-        # cursor.execute("""
-        #     SELECT * FROM library WHERE library_id = ?
-        # """, lib_id)
-        # lib = cursor.fetchone()
-        # if not lib:
-        #     return None
-        # return Library(lib[0], lib[1], lib[2], lib[3])
-
-        return Library(1, "اصفهان", "03131234567", "اصفهان خیابان گلزار")
+    def get_info(cls, lib_id: int = 3) -> 'Library':
+        cursor = DatabaseManager.get_cursor()
+        cursor.execute("""
+            SELECT * FROM library WHERE library_id = ?
+        """, lib_id)
+        lib = cursor.fetchone()
+        if not lib:
+            return None
+        return Library(int(lib[0]), lib[1], lib[2], lib[3])

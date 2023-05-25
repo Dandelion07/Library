@@ -29,6 +29,7 @@ class Ui_AddBookDialog(object):
         AddBookDialog.setLayoutDirection(QtCore.Qt.RightToLeft)
         AddBookDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Persian, QtCore.QLocale.Iran))
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(AddBookDialog)
+        self.horizontalLayout_4.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.vlay_info = QtWidgets.QVBoxLayout()
         self.vlay_info.setObjectName("vlay_info")

@@ -6,27 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>270</width>
-    <height>270</height>
+    <width>295</width>
+    <height>316</height>
    </rect>
-  </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>270</width>
-    <height>270</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>270</width>
-    <height>270</height>
-   </size>
   </property>
   <property name="font">
    <font>
@@ -44,6 +26,9 @@
    <locale language="Persian" country="Iran"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetFixedSize</enum>
+   </property>
    <item>
     <layout class="QFormLayout" name="flay_inputs">
      <item row="1" column="0">

@@ -39,7 +39,6 @@ class ShowMembersDialog(Ui_ShowMembersDialog, QDialog):
 
     def btn_delete_clicked(self):
         selected_rows = [row.row() for row in self.tbl_members.selectionModel().selectedRows()]
-        print(selected_rows)
         for row in selected_rows:
             Member.delete_member(int(self.tbl_members.item(row, 0).text()))
         self.members = Member.get_all_members()

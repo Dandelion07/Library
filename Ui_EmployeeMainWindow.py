@@ -271,4 +271,4 @@ class Ui_EmployeeMainWindow(object):
         item.setText(_translate("EmployeeMainWindow", "بخش"))
         item = self.tbl_books.horizontalHeaderItem(5)
         item.setText(_translate("EmployeeMainWindow", "وضعیت کتاب"))
-        self.btn_back.setText(_translate("EmployeeMainWindow", "خروج"))
+        self.btn_back.setText(_translate("EmployeeMainWindow", "خروج از حساب کاربری"))

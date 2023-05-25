@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QTableWidgetItem, QPushButton, QHBoxLayout, QHeaderView
+from PyQt5.QtWidgets import QWidget, QTableWidgetItem, QPushButton, QHBoxLayout, QHeaderView, QMainWindow
 from Ui_EmployeeMainWindow import Ui_EmployeeMainWindow
 from Employee import Employee
 from Loan import Loan
@@ -12,10 +12,11 @@ from ShowLoanStatsDialog import ShowLoanStatsDialog
 from ShowMembersStatsDialog import ShowMembersStatsDialog
 
 class EmployeeMainWindow(Ui_EmployeeMainWindow, QWidget):
-    def __init__(self, employee: Employee, parent = None):
+    def __init__(self, employee: Employee, parent: QMainWindow = None):
         super(Ui_EmployeeMainWindow, self).__init__()
-        super(QWidget, self).__init__(parent)
+        super(QWidget, self).__init__()
         self.setupUi(self)
+        self.parent_window = parent
 
         self.employee = employee
         self.lbl_employee_id.setText(str(self.employee.employee_id))
@@ -56,23 +57,24 @@ class EmployeeMainWindow(Ui_EmployeeMainWindow, QWidget):
             self.tbl_loan_requests.setItem(i, 1, QTableWidgetItem(l.book.name))
             self.tbl_loan_requests.setItem(i, 2, QTableWidgetItem(str(l.member.member_id)))
             self.tbl_loan_requests.setItem(i, 3, QTableWidgetItem(l.borrow_date.isoformat()))
-
-            hlay_row_buttons = QHBoxLayout()
-            btn_confirm = QPushButton("تایید")
-            btn_confirm.clicked.connect(lambda: self.confirm_loan(l.loan_id))
-            btn_reject = QPushButton("رد")
-            btn_reject.clicked.connect(lambda: self.reject_loan(l.loan_id))
-            hlay_row_buttons.addWidget(btn_confirm)
-            hlay_row_buttons.addWidget(btn_reject)
-
-            button_widget = QWidget()
-            button_widget.setLayout(hlay_row_buttons)
-            self.tbl_loan_requests.setCellWidget(i, 4, button_widget)
+            self.tbl_loan_requests.setCellWidget(i, 4, self.create_confirm_reject_widget(l.loan_id))
             self.tbl_loan_requests.verticalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
             self.tbl_loan_requests.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
             self.tbl_loan_requests.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
 
             i += 1
+
+    def create_confirm_reject_widget(self, loan_id: int) -> QWidget:
+        hlay_row_buttons = QHBoxLayout()
+        btn_confirm = QPushButton("تایید")
+        btn_confirm.clicked.connect(lambda: self.confirm_loan(loan_id))
+        btn_reject = QPushButton("رد")
+        btn_reject.clicked.connect(lambda: self.reject_loan(loan_id))
+        hlay_row_buttons.addWidget(btn_confirm)
+        hlay_row_buttons.addWidget(btn_reject)
+        button_widget = QWidget()
+        button_widget.setLayout(hlay_row_buttons)
+        return button_widget
 
     def fill_book_table(self, books: list[Book]):
         self.tbl_books.setRowCount(0)
@@ -104,9 +106,12 @@ class EmployeeMainWindow(Ui_EmployeeMainWindow, QWidget):
         QuestionDialog(self, "درخواست امانت رد شد.", "پیام").exec()
         self.unconfirmed_lons = Loan.get_unconfirmed_loans(self.employee.section.section_id)
         self.fill_loan_requests_table(self.unconfirmed_lons)
+        self.books = Book.search(section_name = self.employee.section.name if not self.employee.is_manager else None)
+        self.fill_book_table(self.books)
     
     def btn_back_clicked(self):
         self.close()
+        self.parent_window.showMaximized()
 
     def btn_show_members_clicked(self):
         ShowMembersDialog(self).exec()
@@ -119,6 +124,8 @@ class EmployeeMainWindow(Ui_EmployeeMainWindow, QWidget):
 
     def btn_add_book_clicked(self):
         AddBookDialog(self.employee.section, self).exec()
+        self.books = Book.search(section_name = self.employee.section.name if not self.employee.is_manager else None)
+        self.fill_book_table(self.books)
 
     def btn_delete_book_clicked(self):
         if len(self.tbl_books.selectionModel().selectedRows()) == 0:
@@ -129,7 +136,6 @@ class EmployeeMainWindow(Ui_EmployeeMainWindow, QWidget):
         book_id_list = [int(self.tbl_books.item(row.row(), 0).text()) for row in self.tbl_books.selectionModel().selectedRows()]
         Book.delete_books(book_id_list)
         QuestionDialog(self, "کتاب‌های انتخاب‌شده با موفقیت حذف شد", "پیام").exec()
-
         self.books = Book.search(section_name = self.employee.section.name if not self.employee.is_manager else None)
         self.fill_book_table(self.books)
 

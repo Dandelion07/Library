@@ -12,7 +12,10 @@ class LoginDialog(Ui_LoginDialog, QDialog):
         self.btn_back.clicked.connect(self.btn_back_clicked)
         self.btn_login.clicked.connect(self.btn_login_clicked)
 
-        self.adjustSize()
+        self.txt_username.textChanged.connect(lambda: self.lbl_error.setVisible(False))
+        self.txt_password.textChanged.connect(lambda: self.lbl_error.setVisible(False))
+        self.rdb_member.toggled.connect(lambda: self.lbl_error.setVisible(False))
+        self.rdb_employee.toggled.connect(lambda: self.lbl_error.setVisible(False))
 
     def exec(self):
         res = super().exec()
@@ -43,7 +46,6 @@ class LoginDialog(Ui_LoginDialog, QDialog):
             res = Member.Login(self.id, self.password)
             if not res[0]:
                 self.__set_error_message(res[1])
-                self.reject()
                 return
             self.member = res[1]
             self.employee = None
@@ -51,7 +53,6 @@ class LoginDialog(Ui_LoginDialog, QDialog):
             res = Employee.Login(self.id, self.password)
             if not res[0]:
                 self.__set_error_message(res[1])
-                self.reject()
                 return
             self.member = None
             self.employee = res[1]

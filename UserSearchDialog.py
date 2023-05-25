@@ -9,6 +9,7 @@ class UserSearchDialog(Ui_UserSearchDialog, QDialog):
         self.setupUi(self)
         self.btn_back.clicked.connect(self.btn_back_clicked)
         self.btn_search.clicked.connect(self.btn_search_clicked)
+        self.adjustSize()
 
     def exec(self):
         res = super().exec()

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'UserSearchDialog.ui'
+# Form implementation generated from reading ui file '.\UserSearchDialog.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,14 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_UserSearchDialog(object):
     def setupUi(self, UserSearchDialog):
         UserSearchDialog.setObjectName("UserSearchDialog")
-        UserSearchDialog.resize(270, 126)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(UserSearchDialog.sizePolicy().hasHeightForWidth())
-        UserSearchDialog.setSizePolicy(sizePolicy)
-        UserSearchDialog.setMinimumSize(QtCore.QSize(270, 126))
-        UserSearchDialog.setMaximumSize(QtCore.QSize(270, 126))
+        UserSearchDialog.resize(308, 148)
         font = QtGui.QFont()
         font.setFamily("B Nazanin")
         font.setPointSize(12)
@@ -29,8 +22,10 @@ class Ui_UserSearchDialog(object):
         UserSearchDialog.setLayoutDirection(QtCore.Qt.RightToLeft)
         UserSearchDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Persian, QtCore.QLocale.Iran))
         self.verticalLayout = QtWidgets.QVBoxLayout(UserSearchDialog)
+        self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
         self.verticalLayout.setObjectName("verticalLayout")
         self.flay_inputs = QtWidgets.QFormLayout()
+        self.flay_inputs.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
         self.flay_inputs.setObjectName("flay_inputs")
         self.lbl_title = QtWidgets.QLabel(UserSearchDialog)
         self.lbl_title.setObjectName("lbl_title")

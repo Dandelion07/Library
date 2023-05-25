@@ -14,8 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_ShowMembersDialog(object):
     def setupUi(self, ShowMembersDialog):
         ShowMembersDialog.setObjectName("ShowMembersDialog")
-        ShowMembersDialog.resize(650, 400)
-        ShowMembersDialog.setMinimumSize(QtCore.QSize(650, 400))
+        ShowMembersDialog.resize(851, 418)
         font = QtGui.QFont()
         font.setFamily("B Nazanin")
         font.setPointSize(12)

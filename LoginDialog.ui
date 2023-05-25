@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>240</width>
-    <height>192</height>
+    <height>226</height>
    </rect>
   </property>
   <property name="font">
@@ -26,6 +26,9 @@
    <locale language="Persian" country="Iran"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetFixedSize</enum>
+   </property>
    <item>
     <layout class="QFormLayout" name="flay_inputs">
      <item row="0" column="0">

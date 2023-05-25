@@ -265,6 +265,17 @@
           </column>
           <column>
            <property name="text">
+            <string>تایید شده</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>B Nazanin</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </column>
+          <column>
+           <property name="text">
             <string>میزان جریمه</string>
            </property>
            <property name="font">
@@ -380,7 +391,7 @@
      <item>
       <widget class="QPushButton" name="btn_back">
        <property name="text">
-        <string>خروج</string>
+        <string>خروج از حساب کاربری</string>
        </property>
       </widget>
      </item>

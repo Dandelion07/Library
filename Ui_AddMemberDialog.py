@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_AddMemberDialog(object):
     def setupUi(self, AddMemberDialog):
         AddMemberDialog.setObjectName("AddMemberDialog")
-        AddMemberDialog.resize(255, 230)
+        AddMemberDialog.resize(255, 268)
         font = QtGui.QFont()
         font.setFamily("B Nazanin")
         font.setPointSize(12)
@@ -22,6 +22,7 @@ class Ui_AddMemberDialog(object):
         AddMemberDialog.setLayoutDirection(QtCore.Qt.RightToLeft)
         AddMemberDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Persian, QtCore.QLocale.Iran))
         self.verticalLayout = QtWidgets.QVBoxLayout(AddMemberDialog)
+        self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
         self.verticalLayout.setObjectName("verticalLayout")
         self.flay_info = QtWidgets.QFormLayout()
         self.flay_info.setObjectName("flay_info")

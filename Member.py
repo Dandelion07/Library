@@ -1,6 +1,5 @@
 from datetime import date
 from Employee import Employee
-import pyodbc
 from DatabaseManager import DatabaseManager
 
 class Member:
@@ -23,47 +22,42 @@ class Member:
 
     @classmethod
     def Login(cls, username: int, password: str):
-        # TODO Uncomment
-        # cursor = DatabaseManager.get_cursor()
-        # cursor.execute("""SELECT * FROM Member WHERE member_id = ? '1234' = ?""", username, password)
-        # res = cursor.fetchone()
-        # if not res:
-        #     return (False, "کد عضویت یا رمز عبور نادرست است")
-        # return (True, Member(res[0], res[1], res[2], res[3], res[4], date(res[5]), res[6]))
-
-        return (True, Member(1, "فاطمه", "آقابابایی", "09131234567", "اصفهان", date.fromisoformat("2020-05-22")))
+        cursor = DatabaseManager.get_cursor()
+        cursor.execute("""
+            SELECT [member_id], [first_name], [last_name], [phone], [address], [membership_date], [picture_path], [registered_by]
+            FROM Member WHERE member_id = ? AND '1234' = ?
+        """, username, password)
+        res = cursor.fetchone()
+        if not res:
+            return (False, "کد عضویت یا رمز عبور نادرست است")
+        return (True, Member(int(res[0]), res[1], res[2], res[3], res[4], date.fromisoformat(res[5]), res[6], Employee(int(res[7]))))
     
     @classmethod
     def get_all_members(cls) -> list['Member']:
-        # TODO Uncomment
-        # cursor = DatabaseManager.get_cursor()
-        # cursor.execute("""SELECT member_id, first_name, last_name, phone, address, membership_date, picture_path, registered_by FROM Member""")
-        # members = list()
-        # for item in cursor:
-        #     members.append(Member(int(item[0]), item[1], item[2], item[3], item[4], date.fromisoformat(item[5]), item[6], Employee(int(item[7]))))
-        # return members
-
-        return [Member(1, "علیرضا", "آقابابایی", "09123456789", "اصفهان", date(2022,1,30), ""),
-                Member(2, "فاطمه", "محمدی", "09100000000", "اصفهان", date(2022,7,21), ""),
-                Member(3, "سارا", "اکبری", "09125643208", "اصفهان", date(2022,12,1), "")]
+        cursor = DatabaseManager.get_cursor()
+        cursor.execute("""SELECT member_id, first_name, last_name, phone, address, membership_date, picture_path, registered_by FROM Member""")
+        members = list()
+        for item in cursor:
+            members.append(Member(int(item[0]), item[1], item[2], item[3], item[4], date.fromisoformat(item[5]), item[6], Employee(int(item[7]))))
+        return members
     
     @classmethod
     def delete_member(cls, member_id: int):
-        # TODO Uncomment
-        # cursor = DatabaseManager.get_cursor()
-        # cursor.execute("""DELETE FROM member WHERE member_id = ?""", member_id)
-        # cursor.commit()
-        return
+        cursor = DatabaseManager.get_cursor()
+        cursor.execute("""SELECT loan_id FROM loan WHERE member_id = ?""", member_id)
+        loans_id = [int(row[0]) for row in cursor.fetchall()]
+        from Loan import Loan
+        for loan_id in loans_id:
+            Loan.delete_loan(loan_id)
+        cursor.execute("""DELETE FROM member WHERE member_id = ?""", member_id)
+        cursor.commit()
     
     @classmethod
     def add_member(cls, first_name: str, last_name: str, phone: str, address: str, employee_id: int):
-        # TODO Uncomment
-        # cursor = DatabaseManager.get_cursor()
-        # cursor.execute("""
-        #     INSERT INTO member (first_name, last_name, phone, address, membership_date, registered_by)
-        #     VALUES (?, ?, ?, ?, GETDATE(), ?)
-        # """, first_name, last_name, phone, address, employee_id)
-        # cursor.commit()
-        return
-    
+        cursor = DatabaseManager.get_cursor()
+        cursor.execute("""
+            INSERT INTO member (first_name, last_name, phone, address, membership_date, registered_by)
+            VALUES (?, ?, ?, ?, GETDATE(), ?)
+        """, first_name, last_name, phone, address, employee_id)
+        cursor.commit()    
     

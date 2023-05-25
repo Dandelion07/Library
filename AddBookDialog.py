@@ -99,8 +99,8 @@ class AddBookDialog(Ui_AddBookDialog, QDialog):
         self.lbl_error.setVisible(False)
         if not self.check_error():
             return
-        authors = " - ".join(f"{self.tbl_authors.item(row, 0).text} {self.tbl_authors.item(row, 1).text}" for row in range(self.tbl_authors.rowCount()))
-        translators = " - ".join(f"{self.tbl_translators.item(row, 0).text} {self.tbl_translators.item(row, 1).text}" for row in range(self.tbl_translators.rowCount())) if self.tbl_translators.rowCount() > 0 else None
+        authors = " - ".join(f"{self.tbl_authors.item(row, 0).text()} {self.tbl_authors.item(row, 1).text()}" for row in range(self.tbl_authors.rowCount()))
+        translators = " - ".join(f"{self.tbl_translators.item(row, 0).text()} {self.tbl_translators.item(row, 1).text()}" for row in range(self.tbl_translators.rowCount())) if self.tbl_translators.rowCount() > 0 else None
         title = self.txt_title.text().strip()
         publication = self.txt_publication.text().strip()
         release_date = jdatetime.date(int(self.spn_year.text()), int(self.spn_month.text()), int(self.spn_day.text())).togregorian()

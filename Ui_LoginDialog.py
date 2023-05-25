@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_LoginDialog(object):
     def setupUi(self, LoginDialog):
         LoginDialog.setObjectName("LoginDialog")
-        LoginDialog.resize(240, 192)
+        LoginDialog.resize(240, 226)
         font = QtGui.QFont()
         font.setFamily("B Nazanin")
         font.setPointSize(12)
@@ -22,6 +22,7 @@ class Ui_LoginDialog(object):
         LoginDialog.setLayoutDirection(QtCore.Qt.RightToLeft)
         LoginDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Persian, QtCore.QLocale.Iran))
         self.verticalLayout = QtWidgets.QVBoxLayout(LoginDialog)
+        self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
         self.verticalLayout.setObjectName("verticalLayout")
         self.flay_inputs = QtWidgets.QFormLayout()
         self.flay_inputs.setObjectName("flay_inputs")
